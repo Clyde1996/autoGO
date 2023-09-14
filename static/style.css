@@ -1,0 +1,220 @@
+/***********************************************/
+/*Global*/
+/***********************************************/
+
+
+/* le * ca incul tous les elements before et after*/
+
+*, ::before, ::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    --light: #fff;
+    --dark: #101010;
+    --gold: goldenrod;
+
+}
+
+h2{
+    margin: 0 auto;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--gold);
+    text-align: center;
+    font-size: clamp(22px, 2vw, 40px);
+    text-transform: uppercase;
+    color: var(--gold);
+
+}
+
+
+body{
+    background: var(--light);
+    background: no-repeat center/cover url('./src/R.jpg');
+    background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#contanier{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 2);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "nav"
+    ---------------------"header"
+    ---------------------"section"
+    ---------------------"footer";
+
+}
+
+.liste{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.liste li{
+    flex: 1;
+    text-align: center;
+    padding: 1rem 0;
+    color: var(--light);
+}
+
+.liste li a {
+    color: var(--light);
+    text-decoration: none;
+}
+
+
+/*tous les element a faire dans le child de la liste*/
+.liste li:nth-child(odd){
+    background: var(--gold);
+}
+
+/*tous les element a faire dans le pere de la liste*/
+.liste li:nth-child(even){
+    background: var(--dark);
+}
+
+/***********************************************/
+/*navigation*/ /*range->rrjesht*/
+/***********************************************/
+
+nav{
+    width: 100%;
+    height: 80px;
+    grid-area: "nav";
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background: var(--dark);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    margin : 0 1rem;
+}
+
+
+/*font-size: clamp(16px, 2vw, 20px); assure que la taille de police s'ajuste de manière responsive en fonction de la largeur de la fenêtre, mais reste toujours dans la plage de 16 pixels à 20 pixels. Cela permet d'obtenir un meilleur rendu sur des écrans de différentes tailles.*/
+nav ul li a {
+    text-decoration: none;
+    font-size: clamp(16px, 2vw, 20px); 
+    color: var(--light);
+    transition: color .2s ease-in-out;
+    font-weight: bold; /*le texte est bold/ texti esht me i trrashe me ngjyre te forcuar*/
+}
+
+/*quand on survol avec le souris dans le li ca change le coluers*/
+
+nav ul li a:hover{
+    color: var(--gold);
+    text-decoration: underline;
+}
+
+
+/*lorsque on est dans le page ca resete avec le coulerur gold avec underline*/
+nav ul li a.active{
+    text-decoration: underline;
+    color: var(--gold);
+}
+
+/***********************************************/
+/* header */
+/***********************************************/
+
+header{
+    width: 100%;
+    grid-area: "header";
+    background: radial-gradient(transparent, #333);
+
+}
+
+.header-img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-img img {
+    width: 100%;
+    max-width: 450px;
+
+}
+
+header h1{
+    text-align: center;
+    font-weight: 900;
+    margin: 2rem 0;
+    font-size: clamp(45px, 5vw, 80px);
+}
+
+header h1 span{
+    color: var(--gold);
+}
+
+ header p {
+    text-align: center;
+    color: var(--light);
+    margin-bottom: 1rem;
+    font-style: italic;
+} 
+
+/***********************************************/
+/* section */
+/***********************************************/
+
+section{
+    width: 100%;
+    grid-area: "section";
+    background: var(--light);
+    padding: 0 1rem;
+}
+
+section .content{
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+section .content img{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+section .content p{
+    margin: 1rem 0;
+    font-size: 16px;
+    text-align: justify;
+}
+
+/***********************************************/
+/* footer */
+/***********************************************/
+
+footer{
+    width: 100%;
+    height: 100px;
+    background: var(--dark);
+    grid-area: "footer";
+    text-align: center;
+    color: var(--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+footer p{
+    font-size: clamp(13px, 2vw, 16px);
+}
